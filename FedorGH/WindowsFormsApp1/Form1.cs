@@ -15,9 +15,8 @@ namespace WindowsFormsApp1
         bool a = true;
         int min = 0;
         int sec = 0;
-        string seconds = "";
-
         Timer tick = new Timer();
+
         public Form1()
         {
             InitializeComponent();
@@ -27,61 +26,52 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (a == true && ((Button)sender).Text == "")
+            Button currentButton = (Button)sender;
+            if (a == true && currentButton.Text == "")
             {
                 label2.Text = "нолик";
-                sender.GetType().GetProperty("Text").SetValue(sender, "X");
+                currentButton.Text = "X";
                 a = !a;
             }
-            else if (a == false && ((Button)sender).Text == "")
+            else if (a == false && currentButton.Text == "")
             {
                 label2.Text = "крестик";
-                sender.GetType().GetProperty("Text").SetValue(sender, "O");
+                currentButton.Text = "O";
                 a = !a;
             }
 
-            string answer = a == false ? "крестиков" : "ноликов";
+            string whoWinner = a == false ? "крестиков" : "ноликов";
 
-            if (((button1.Text == button4.Text && button4.Text == button7.Text) && button1.Text != "") ||
-                ((button2.Text == button5.Text && button5.Text == button8.Text) && button2.Text != "") ||
-                ((button3.Text == button6.Text && button6.Text == button9.Text) && button3.Text != "") ||
-                ((button1.Text == button2.Text && button2.Text == button3.Text) && button1.Text != "") ||
-                ((button4.Text == button5.Text && button5.Text == button6.Text) && button4.Text != "") ||
-                ((button7.Text == button8.Text && button8.Text == button9.Text) && button7.Text != "") ||
-                ((button1.Text == button5.Text && button5.Text == button9.Text) && button1.Text != "") ||
-                ((button3.Text == button5.Text && button5.Text == button7.Text) && button3.Text != ""))
+            if ((button1.Text == button4.Text && button4.Text == button7.Text && button1.Text != "") ||
+                (button2.Text == button5.Text && button5.Text == button8.Text && button2.Text != "") ||
+                (button3.Text == button6.Text && button6.Text == button9.Text && button3.Text != "") ||
+                (button1.Text == button2.Text && button2.Text == button3.Text && button1.Text != "") ||
+                (button4.Text == button5.Text && button5.Text == button6.Text && button4.Text != "") ||
+                (button7.Text == button8.Text && button8.Text == button9.Text && button7.Text != "") ||
+                (button1.Text == button5.Text && button5.Text == button9.Text && button1.Text != "") ||
+                (button3.Text == button5.Text && button5.Text == button7.Text && button3.Text != ""))
             {
-                label1.Text = $"Игра окончена за {min} мин. {sec} сек.";
-                label2.Text = "";
-                tick.Stop();
-                groupBox1.Enabled = false;
-                MessageBox.Show($"Победа {answer}");
+                StopGame();
+                MessageBox.Show($"Победа {whoWinner}");
             }
             else if(button1.Text != "" && button2.Text != "" && button3.Text != "" && button4.Text != "" && button5.Text != "" && button6.Text != "" && button7.Text != "" && button8.Text != "" && button9.Text != "")
             {
-                label1.Text = $"Игра окончена за {min} мин. {sec} сек.";
-                label2.Text = "";
-                tick.Stop();
-                groupBox1.Enabled = false;
+                StopGame();
                 MessageBox.Show("Ничья");
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            sec++;
-            if (sec != 60)
-            {
-                seconds = sec.ToString().Length == 1 ? seconds = $"0{sec}" : seconds = $"{sec}";
-            }
+            if (sec != 59)
+                sec++;
             else
             {
                 sec = 0;
-                seconds = "00";
                 min++;
             }
 
-            label3.Text = $"0{min}:{seconds}";
+            label3.Text = $"{String.Format("{0:00}", min)}:{String.Format("{0:00}", sec)}";
 
         }
 
@@ -98,6 +88,14 @@ namespace WindowsFormsApp1
         private void restart_Click_1(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void StopGame()
+        {
+            label1.Text = $"Игра окончена за {min} мин. {sec} сек.";
+            label2.Text = "";
+            tick.Stop();
+            groupBox1.Enabled = false;
         }
     }
 }
