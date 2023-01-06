@@ -1,0 +1,10 @@
+C:\Users\Фёдор\Desktop\TicTacToeGame\bin\Debug\TicTacToeGame.exe.config
+C:\Users\Фёдор\Desktop\TicTacToeGame\bin\Debug\TicTacToeGame.exe
+C:\Users\Фёдор\Desktop\TicTacToeGame\bin\Debug\TicTacToeGame.pdb
+C:\Users\Фёдор\Desktop\TicTacToeGame\obj\Debug\TicTacToeGame.csproj.AssemblyReference.cache
+C:\Users\Фёдор\Desktop\TicTacToeGame\obj\Debug\TicTacToeGame.КрестикиНолики.resources
+C:\Users\Фёдор\Desktop\TicTacToeGame\obj\Debug\TicTacToeGame.Properties.Resources.resources
+C:\Users\Фёдор\Desktop\TicTacToeGame\obj\Debug\TicTacToeGame.csproj.GenerateResource.cache
+C:\Users\Фёдор\Desktop\TicTacToeGame\obj\Debug\TicTacToeGame.csproj.CoreCompileInputs.cache
+C:\Users\Фёдор\Desktop\TicTacToeGame\obj\Debug\TicTacToeGame.exe
+C:\Users\Фёдор\Desktop\TicTacToeGame\obj\Debug\TicTacToeGame.pdb
